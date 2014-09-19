@@ -1,0 +1,19 @@
+{
+  "name": "angular-lazy",
+  "version": "0.0.1",
+  "authors": [
+    "immysl <immy123@gmail.com>"
+  ],
+  "main": "main.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "vendor"
+  ],
+  "dependencies": {
+    "angular": "~1.2.4",
+    "angular-ui-router": "~0.2.10",
+    "oclazyload": "~0.3.7",
+    "bootstrap": "~3.2.0"
+  }
+}

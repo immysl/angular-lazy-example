@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" data-ng-app="fdc">
+    <head>
+        <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="vendor/oclazyload/dist/ocLazyLoad.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body class="container">
+        <header data-ng-include="'common/includes/header.html'"></header>
+
+        <main data-ui-view></main>
+
+        <footer data-ng-include="'common/includes/footer.html'"></footer>
+    </body>
+</html>

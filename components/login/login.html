@@ -1,0 +1,15 @@
+<form novalidate="novalidate">
+    <h2>Login Form</h2>
+    <p data-ng-show="login.user.showMessage">{{login.user.loginMessage}}</p>
+    <p>
+        <label for="username">Username:</label>
+        <input id="username" data-ng-model="login.user.username" type="text" required="required">
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input id="password" data-ng-model="login.user.password" type="password" required="required">
+    </p>
+    <p>
+        <button data-ng-click="login.submitLogin()">Submit Credentials</button>
+    </p>
+</form>
