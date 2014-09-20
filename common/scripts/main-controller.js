@@ -1,21 +1,27 @@
-/*global angular, console*/
+/*global define*/
 
 (function () {
 
-    angular.module('fdc').controller('MainCtrl', MainCtrl);
+    'use strict';
 
-    function MainCtrl($ocLazyLoad, $timeout) {
-        var vm = this;
+    var dependencies = ['app'];
 
-        vm.changeShowHello = changeShowHello;
+    define(dependencies, function (angular, app) {
+        app.controller('MainCtrl', MainCtrl);
 
-        function changeShowHello() {
-            if (vm.showHello) {
-                vm.showHello = false;
-            } else {
-                vm.showHello = true;
+        function MainCtrl($ocLazyLoad, $timeout) {
+            var vm = this;
+
+            vm.changeShowHello = changeShowHello;
+
+            function changeShowHello() {
+                if (vm.showHello) {
+                    vm.showHello = false;
+                } else {
+                    vm.showHello = true;
+                }
             }
         }
-    }
+    });
 
 }());

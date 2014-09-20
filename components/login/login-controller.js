@@ -1,36 +1,42 @@
-/*global angular*/
+/*global define*/
 
 (function () {
 
     'use strict';
 
-    angular.module('fdc.login').controller('LoginCtrl', LoginCtrl);
+    var dependencies = ['components/login/login'];
 
-    function LoginCtrl() {
-        var vm = this;
+    define(dependencies, function (loginModule) {
 
-        vm.submitLogin = submitLogin;
+        loginModule.module('app.login').controller('LoginCtrl', LoginCtrl);
 
-        vm.user = {};
-        vm.user.showMessage = false;
+        function LoginCtrl() {
+            var vm = this;
 
-        function submitLogin() {
-            vm.user.showMessage = true;
+            vm.submitLogin = submitLogin;
 
-            if (vm.user.username && vm.user.password) {
-                if (vm.user.username === 'hello') {
-                    if (vm.user.password === 'hello_pass') {
-                        vm.user.loginMessage = 'correct credentials';
+            vm.user = {};
+            vm.user.showMessage = false;
+
+            function submitLogin() {
+                vm.user.showMessage = true;
+
+                if (vm.user.username && vm.user.password) {
+                    if (vm.user.username === 'hello') {
+                        if (vm.user.password === 'hello_pass') {
+                            vm.user.loginMessage = 'correct credentials';
+                        } else {
+                            vm.user.loginMessage = 'wrong password';
+                        }
                     } else {
-                        vm.user.loginMessage = 'wrong password';
+                        vm.user.loginMessage = 'wrong username';
                     }
                 } else {
-                    vm.user.loginMessage = 'wrong username';
+                    vm.user.loginMessage = 'enter credentials';
                 }
-            } else {
-                vm.user.loginMessage = 'enter credentials';
             }
         }
-    }
+
+    });
 
 }());

@@ -1,11 +1,7 @@
 <!doctype html>
-<html lang="en" data-ng-app="fdc">
+<html lang="en">
     <head>
         <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-        <script src="vendor/angular/angular.js"></script>
-        <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="vendor/oclazyload/dist/ocLazyLoad.js"></script>
-        <script src="app.js"></script>
     </head>
 
     <body class="container">
@@ -14,5 +10,7 @@
         <main data-ui-view></main>
 
         <footer data-ng-include="'common/includes/footer.html'"></footer>
+
+        <script src="vendor/requirejs/require.js" data-main="main"></script>
     </body>
 </html>

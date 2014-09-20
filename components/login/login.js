@@ -1,9 +1,15 @@
-/*global angular*/
+/*global define*/
 
 (function () {
 
     'use strict';
 
-    angular.module('fdc.login', []);
+    var dependencies = ['angular'];
+
+    define(dependencies, function (angular) {
+
+        return angular.module('app.login', []);
+
+    });
 
 }());
