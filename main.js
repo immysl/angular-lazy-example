@@ -4,6 +4,7 @@
     'use strict';
 
     require.config({
+        waitSeconds: 100,
         paths: {
             'angular': 'vendor/angular/angular',
             'ui-router': 'vendor/angular-ui-router/release/angular-ui-router',
@@ -29,7 +30,7 @@
     var dependencies = ['angular', 'app'];
 
     require(dependencies, function (angular) {
-        document.addEventListener('DOMContentLoaded', function () {
+        angular.element(document).ready(function () {
             angular.bootstrap(document, ['app']);
         });
     });
