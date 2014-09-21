@@ -16,6 +16,5 @@
     "oclazyload": "~0.3.7",
     "bootstrap": "~3.2.0",
     "requirejs": "~2.1.15",
-    "ui-router-extras": "~0.0.10"
   }
 }
