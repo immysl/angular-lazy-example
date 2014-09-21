@@ -6,7 +6,7 @@
 
     var dependencies = ['app'];
 
-    define(dependencies, function (angular, app) {
+    define(dependencies, function (app) {
         app.controller('MainCtrl', MainCtrl);
 
         function MainCtrl($ocLazyLoad, $timeout) {
