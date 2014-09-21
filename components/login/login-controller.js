@@ -2,13 +2,10 @@
 
 (function () {
 
-    'use strict';
-
     var dependencies = ['components/login/login'];
 
     define(dependencies, function (loginModule) {
-
-        loginModule.module('app.login').controller('LoginCtrl', LoginCtrl);
+        loginModule.controller('LoginCtrl', LoginCtrl);
 
         function LoginCtrl() {
             var vm = this;

@@ -9,7 +9,8 @@
             'angular': 'vendor/angular/angular',
             'ui-router': 'vendor/angular-ui-router/release/angular-ui-router',
             'oc-lazy-load': 'vendor/oclazyload/dist/ocLazyLoad',
-            'ui-router-extras': 'vendor/ui-router-extras/release/ct-ui-router-extras'
+            'ui-router-extras': 'vendor/ui-router-extras/release/ct-ui-router-extras',
+            'app': 'app'
         },
         shim: {
             'angular': {
@@ -23,7 +24,8 @@
             },
             'ui-router-extras': {
                 deps: ['ui-router']
-            }
+            },
+            'app': ['angular']
         }
     });
 

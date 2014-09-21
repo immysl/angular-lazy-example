@@ -8,7 +8,7 @@
     define(dependencies, function (angular) {
         angular.module('app', ['ui.router', 'ct.ui.router.extras', 'oc.lazyLoad']);
 
-        //angular.module('app').config(RouterConfig);
+        angular.module('app').config(RouterConfig);
         angular.module('app').config(LazyLoadConfig);
 
         function RouterConfig($stateProvider, $urlRouterProvider) {
@@ -16,7 +16,7 @@
 
             // You can also load via resolve
             $stateProvider.state('login', {
-                url: '/',
+                url: '/login',
                 controller: 'LoginCtrl',
                 controllerAs: 'login',
                 templateUrl: 'components/login/login.html',
@@ -24,7 +24,6 @@
                     login: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
-                                reconfig: true,
                                 name: 'app.login',
                                 files: ['components/login/login-controller']
                             });
@@ -58,22 +57,6 @@
                 events: true,
                 jsLoader: require,
                 loadedModules: ['app']
-            });
-
-            $futureStateProvider.stateFactory('ocLazyLoad', function ($ocLazyLoad, futureState) {
-                return $ocLazyLoad.load({
-                    reconfig: true,
-                    name: futureState.name,
-                    files: futureState.files
-                });
-            });
-
-            $futureStateProvider.futureState({
-                stateName: 'login',
-                urlPrefix: '/',
-                type: 'ocLazyLoad',
-                name: 'app.login',
-                files: ['components/login/login-controller']
             });
         }
 
