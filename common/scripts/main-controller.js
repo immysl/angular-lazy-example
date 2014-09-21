@@ -2,7 +2,7 @@
 
 (function () {
 
-    angular.module('fdc').controller('MainCtrl', MainCtrl);
+    angular.module('app').controller('MainCtrl', MainCtrl);
 
     function MainCtrl($ocLazyLoad, $timeout) {
         var vm = this;

@@ -4,6 +4,6 @@
 
     'use strict';
 
-    angular.module('fdc.login', []);
+    angular.module('app.login', []);
 
 }());

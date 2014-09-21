@@ -4,10 +4,10 @@
     'use strict';
 
     // Declare app level module which depends on filters, and services
-    angular.module('fdc', ['oc.lazyLoad', 'ui.router']);
+    angular.module('app', ['oc.lazyLoad', 'ui.router']);
 
-    angular.module('fdc').config(OcLazyLoadConfig);
-    angular.module('fdc').config(RouterConfig);
+    angular.module('app').config(OcLazyLoadConfig);
+    angular.module('app').config(RouterConfig);
 
     function OcLazyLoadConfig($ocLazyLoadProvider) {
         // We configure ocLazyLoad to use the lib script.js as the async loader
@@ -29,7 +29,7 @@
                 login: ['$ocLazyLoad',
                     function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'fdc.login',
+                            name: 'app.login',
                             files: [
                                 'vendor/bootstrap/dist/css/bootstrap.css',
                                 'components/login/login.js',
@@ -47,7 +47,7 @@
                 main: ['$ocLazyLoad',
                     function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
-                            name: 'fdc',
+                            name: 'app',
                             files: ['common/scripts/main-controller.js']
                         });
                     }

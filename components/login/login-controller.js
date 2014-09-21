@@ -4,7 +4,7 @@
 
     'use strict';
 
-    angular.module('fdc.login').controller('LoginCtrl', LoginCtrl);
+    angular.module('app.login').controller('LoginCtrl', LoginCtrl);
 
     function LoginCtrl() {
         var vm = this;
