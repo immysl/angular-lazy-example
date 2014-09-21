@@ -1,20 +1,19 @@
 <!doctype html>
-<html lang="en" data-ng-app="app">
+<html lang="en">
 
 <head>
-    <title>Angular Lazy App</title>
-    <script src="vendor/angular/angular.js"></script>
-    <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="vendor/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="app.js"></script>
+    <title>Angular Lazyload App</title>
+    <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 
 <body class="container">
-    <header data-ng-include="'common/includes/header.html'"></header>
+    <header data-ng-include="'common/includes/header.html'" class="col-md-6 col-md-offset-3"></header>
 
-    <main data-ui-view></main>
+    <main data-ui-view class="col-md-6 col-md-offset-3"></main>
 
-    <footer data-ng-include="'common/includes/footer.html'"></footer>
+    <footer data-ng-include="'common/includes/footer.html'" class="col-md-6 col-md-offset-3"></footer>
+
+    <script src="vendor/requirejs/require.js" data-main="main"></script>
 </body>
 
 </html>

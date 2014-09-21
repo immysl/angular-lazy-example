@@ -1,15 +1,19 @@
 <form novalidate="novalidate">
     <h2>Login Form</h2>
-    <p data-ng-show="login.user.showMessage">{{login.user.loginMessage}}</p>
-    <p>
-        <label for="username">Username:</label>
-        <input id="username" data-ng-model="login.user.username" type="text" required="required">
-    </p>
-    <p>
-        <label for="password">Password:</label>
-        <input id="password" data-ng-model="login.user.password" type="password" required="required">
-    </p>
-    <p>
-        <button data-ng-click="login.submitLogin()">Submit Credentials</button>
-    </p>
+    <hr>
+    <p data-ng-show="login.user.showMessage" class="text-info text-center text-uppercase">{{login.user.loginMessage}}</p>
+    <hr data-ng-show="login.user.showMessage">
+    <fieldset>
+        <p class="form-group">
+            <label for="username">Username</label>
+            <input id="username" data-ng-model="login.user.username" type="text" required="required" class="form-control">
+        </p>
+        <p class="form-group">
+            <label for="password">Password</label>
+            <input id="password" data-ng-model="login.user.password" type="password" required="required" class="form-control">
+        </p>
+        <p class="form-group">
+            <button data-ng-click="login.submitLogin()" class="btn btn-info">Submit Credentials</button>
+        </p>
+    </fieldset>
 </form>

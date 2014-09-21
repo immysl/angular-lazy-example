@@ -1,36 +1,41 @@
-/*global angular*/
+/*global define*/
 
 (function () {
 
     'use strict';
 
-    angular.module('app.login').controller('LoginCtrl', LoginCtrl);
+    var dependencies = ['components/login/login'];
 
-    function LoginCtrl() {
-        var vm = this;
+    define(dependencies, function (login) {
+        login.controller('LoginCtrl', LoginCtrl);
 
-        vm.submitLogin = submitLogin;
+        function LoginCtrl() {
+            var vm = this;
 
-        vm.user = {};
-        vm.user.showMessage = false;
+            vm.submitLogin = submitLogin;
 
-        function submitLogin() {
-            vm.user.showMessage = true;
+            vm.user = {};
+            vm.user.showMessage = false;
 
-            if (vm.user.username && vm.user.password) {
-                if (vm.user.username === 'hello') {
-                    if (vm.user.password === 'hello_pass') {
-                        vm.user.loginMessage = 'correct credentials';
+            function submitLogin() {
+                vm.user.showMessage = true;
+
+                if (vm.user.username && vm.user.password) {
+                    if (vm.user.username === 'hello') {
+                        if (vm.user.password === 'hello_pass') {
+                            vm.user.loginMessage = 'correct credentials';
+                        } else {
+                            vm.user.loginMessage = 'wrong password';
+                        }
                     } else {
-                        vm.user.loginMessage = 'wrong password';
+                        vm.user.loginMessage = 'wrong username';
                     }
                 } else {
-                    vm.user.loginMessage = 'wrong username';
+                    vm.user.loginMessage = 'enter credentials';
                 }
-            } else {
-                vm.user.loginMessage = 'enter credentials';
             }
         }
-    }
+
+    });
 
 }());
