@@ -4,12 +4,13 @@
 
     'use strict';
 
-    var dependencies = ['components/login/login'];
+    var dependencies = ['components/login/login',
+                        'components/login/login-service'];
 
-    define(dependencies, function (login) {
-        login.controller('LoginCtrl', LoginCtrl);
+    define(dependencies, function (LoginModule) {
+        LoginModule.controller('LoginCtrl', LoginCtrl);
 
-        function LoginCtrl() {
+        function LoginCtrl($http, LoginService) {
             var vm = this;
 
             vm.submitLogin = submitLogin;
@@ -19,20 +20,7 @@
 
             function submitLogin() {
                 vm.user.showMessage = true;
-
-                if (vm.user.username && vm.user.password) {
-                    if (vm.user.username === 'hello') {
-                        if (vm.user.password === 'hello_pass') {
-                            vm.user.loginMessage = 'correct credentials';
-                        } else {
-                            vm.user.loginMessage = 'wrong password';
-                        }
-                    } else {
-                        vm.user.loginMessage = 'wrong username';
-                    }
-                } else {
-                    vm.user.loginMessage = 'enter credentials';
-                }
+                vm.user.loginMessage = LoginService.checkCredentials(vm.user.username, vm.user.password);
             }
         }
 
