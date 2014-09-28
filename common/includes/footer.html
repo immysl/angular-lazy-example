@@ -1,6 +1,6 @@
 <footer data-ng-controller="FooterCtrl as footer" class="col-md-6 col-md-offset-3">
     <hr>
     <p class="text-center text-uppercase">
-        <small>{{footer.copyrightNotice}}</small>
+        <small data-ng-bind-html="footer.copyrightNotice"></small>
     </p>
 </footer>

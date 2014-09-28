@@ -12,7 +12,7 @@
         function FooterCtrl($sce) {
             var vm = this;
 
-            vm.copyrightNotice = $sce.trustAsHtml('© 2014 Immysl. All rights not reserved.');
+            vm.copyrightNotice = $sce.trustAsHtml('&#169; 2014 Immysl. All rights not reserved.');
         }
     });
 
