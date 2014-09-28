@@ -1,17 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-ng-controller="MainCtrl as main">
 
 <head>
-    <title>Angular Lazyload App</title>
+    <title>{{main.pageTitle}}</title>
     <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 
 <body class="container">
-    <header data-ng-include="'common/includes/header.html'" class="col-md-6 col-md-offset-3"></header>
+    <noscript>
+        <div class="bg-warning">
+            <hr/>
+            <p class="text-center">Please note that this application does not work when JavaScript is disabled in your web browser.</p>
+            <hr/>
+        </div>
+    </noscript>
+
+    <ng-include src="'common/includes/header.html'" data-ng-if="main.authenticated"></ng-include>
 
     <main data-ui-view class="col-md-6 col-md-offset-3"></main>
 
-    <footer data-ng-include="'common/includes/footer.html'" class="col-md-6 col-md-offset-3"></footer>
+    <ng-include src="'common/includes/footer.html'"></ng-include>
 
     <script src="vendor/requirejs/require.js" data-main="main"></script>
 </body>

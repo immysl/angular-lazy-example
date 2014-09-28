@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Login",
+        "state": "login"
+    },
+    {
+        "name": "Dashboard",
+        "state": "dashboard"
+    },
+    {
+        "name": "Story",
+        "state": "story"
+    }
+]

@@ -16,7 +16,7 @@
 
             // You can also load via resolve
             $stateProvider.state('login', {
-                url: '/login',
+                url: '/',
                 controller: 'LoginCtrl as login',
                 templateUrl: 'components/login/login.html',
                 resolve: {
@@ -29,16 +29,16 @@
                         }
                     ]
                 }
-            }).state('home', {
-                url: '/home',
-                controller: 'MainCtrl as main',
-                templateUrl: 'common/views/main.html',
+            }).state('dashboard', {
+                url: '/dashboard',
+                controller: 'DashboardCtrl as dashboard',
+                templateUrl: 'components/dashboard/dashboard.html',
                 resolve: {
                     main: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
-                                name: 'app',
-                                files: ['common/scripts/main-controller']
+                                name: 'app.dashboard',
+                                files: ['components/dashboard/dashboard-controller']
                             });
                         }
                     ]

@@ -7,13 +7,12 @@
     var dependencies = ['app'];
 
     define(dependencies, function (app) {
-        app.controller('MainCtrl', MainCtrl);
+        app.controller('FooterCtrl', FooterCtrl);
 
-        function MainCtrl() {
+        function FooterCtrl($sce) {
             var vm = this;
 
-            vm.pageTitle = 'Angular Lazyload App';
-            vm.authenticated = true;
+            vm.copyrightNotice = $sce.trustAsHtml('© 2014 Immysl. All rights not reserved.');
         }
     });
 

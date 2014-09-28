@@ -21,7 +21,11 @@
         }
     });
 
-    var dependencies = ['angular', 'app'];
+    var dependencies = ['angular',
+                        'app',
+                        'common/scripts/main-controller',
+                        'common/scripts/header-controller',
+                        'common/scripts/footer-controller'];
 
     require(dependencies, function (angular) {
         angular.element(document).ready(function () {

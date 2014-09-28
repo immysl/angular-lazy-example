@@ -1,13 +1,11 @@
-<h1 class="text-center">Angular Lazyload App</h1>
-<hr>
-<nav class="navbar">
-    <ul class="nav nav-pills">
-        <li><a ui-sref="login">Login</a>
-        </li>
-        <li><a ui-sref="home">Dashboard</a>
-        </li>
-        <li><a ui-sref="story">Story</a>
-        </li>
-    </ul>
-</nav>
-<p class="lead">This is a small example app used to demonstrate how to lazyload angular modules by dynamically injecting them to the app.</p>
+<header data-ng-controller="HeaderCtrl as header" class="col-md-6 col-md-offset-3">
+    <h1 class="text-center">{{header.title}}</h1>
+    <hr>
+    <nav class="navbar">
+        <ul class="nav nav-pills">
+            <li data-ng-repeat="link in header.navLinks"><a ui-sref="{{link.state}}">{{link.name}}</a>
+            </li>
+        </ul>
+    </nav>
+    <p class="lead">{{header.leadText}}</p>
+</header>
