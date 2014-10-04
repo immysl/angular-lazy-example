@@ -47,6 +47,21 @@
                         }
                     ]
                 }
+            }).state('story', {
+                url: '/story',
+                controller: 'StoryCtrl as story',
+                templateUrl: 'components/story/story.html',
+                authenticate: true,
+                resolve: {
+                    main: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load({
+                                name: 'app.story',
+                                files: ['components/story/story-controller']
+                            });
+                        }
+                    ]
+                }
             }).state('404', {
                 url: '/404',
                 templateUrl: 'common/views/404.html'
@@ -68,7 +83,7 @@
                     $state.go('login');
                     event.preventDefault();
                 } else if (toState.name === 'login' && AuthService.isAuthenticated()) {
-                    $state.go('dashboard');
+                    $state.go(fromState.name);
                     event.preventDefault();
                 }
             });
