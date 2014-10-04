@@ -23,9 +23,10 @@
 
     var dependencies = ['angular',
                         'app',
-                        'common/scripts/main-controller',
-                        'common/scripts/header-controller',
-                        'common/scripts/footer-controller'];
+                        'common/scripts/controllers/main-controller',
+                        'common/scripts/controllers/header-controller',
+                        'common/scripts/controllers/footer-controller',
+                        'common/scripts/services/auth-service'];
 
     require(dependencies, function (angular) {
         angular.element(document).ready(function () {
@@ -33,4 +34,4 @@
         });
     });
 
-}());
+})();

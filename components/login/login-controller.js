@@ -1,4 +1,4 @@
-/*global define*/
+/*global define, localStorage*/
 
 (function () {
 
@@ -10,20 +10,31 @@
     define(dependencies, function (LoginModule) {
         LoginModule.controller('LoginCtrl', LoginCtrl);
 
-        function LoginCtrl($http, LoginService) {
-            var vm = this;
+        /* @ngInject */
+        function LoginCtrl(LoginService, AuthService, $http, $state) {
+            var vm = this,
+                message;
 
+            // scope methods
             vm.submitLogin = submitLogin;
 
+            // scope variables
             vm.user = {};
             vm.user.showMessage = false;
 
             function submitLogin() {
-                vm.user.showMessage = true;
-                vm.user.loginMessage = LoginService.checkCredentials(vm.user.username, vm.user.password);
+                message = LoginService.checkCredentials(vm.user.username, vm.user.password);
+
+                if (message === 'correct credentials') {
+                    $state.go('dashboard');
+                    AuthService.updateAuthenticated(true);
+                } else {
+                    vm.user.showMessage = true;
+                    vm.user.loginMessage = message;
+                }
             }
         }
 
     });
 
-}());
+})();
