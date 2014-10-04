@@ -1,4 +1,4 @@
-/*global define, require*/
+/*global define, require, localStorage*/
 
 (function () {
     'use strict';
@@ -11,7 +11,10 @@
         angular.module('app').config(RouterConfig);
         angular.module('app').config(LazyLoadConfig);
 
-        function RouterConfig($stateProvider, $urlRouterProvider) {
+        angular.module('app').run(Authenticate);
+
+        function RouterConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
             $urlRouterProvider.otherwise('/404');
 
             // You can also load via resolve
@@ -33,6 +36,7 @@
                 url: '/dashboard',
                 controller: 'DashboardCtrl as dashboard',
                 templateUrl: 'components/dashboard/dashboard.html',
+                authenticate: true,
                 resolve: {
                     main: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
@@ -58,8 +62,17 @@
             });
         }
 
+        function Authenticate($rootScope, $state, AuthService) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+                if (toState.authenticate && !AuthService.isAuthenticated()) {
+                    $state.go('login');
+                    event.preventDefault();
+                }
+            });
+        }
+
         return angular.module('app');
 
     });
 
-}());
+})();
