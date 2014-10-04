@@ -67,6 +67,9 @@
                 if (toState.authenticate && !AuthService.isAuthenticated()) {
                     $state.go('login');
                     event.preventDefault();
+                } else if (toState.name === 'login' && AuthService.isAuthenticated()) {
+                    $state.go('dashboard');
+                    event.preventDefault();
                 }
             });
         }
