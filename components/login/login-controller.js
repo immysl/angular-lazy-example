@@ -26,8 +26,8 @@
                 message = LoginService.checkCredentials(vm.user.username, vm.user.password);
 
                 if (message === 'correct credentials') {
-                    $state.go('dashboard');
                     AuthService.updateAuthenticated(true);
+                    $state.go('dashboard');
                 } else {
                     vm.user.showMessage = true;
                     vm.user.loginMessage = message;
