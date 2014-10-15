@@ -8,6 +8,7 @@
                         'components/login/login-service'];
 
     define(dependencies, function (LoginModule) {
+
         LoginModule.controller('LoginCtrl', LoginCtrl);
 
         /* @ngInject  */

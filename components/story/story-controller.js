@@ -6,9 +6,9 @@
 
     var dependencies = ['components/story/story'];
 
-    define(dependencies, function (story) {
+    define(dependencies, function (StoryModule) {
 
-        story.controller('StoryCtrl', StoryCtrl);
+        StoryModule.controller('StoryCtrl', StoryCtrl);
 
         function StoryCtrl () {
             var vm = this;

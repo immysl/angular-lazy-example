@@ -9,6 +9,7 @@
             'angular': 'vendor/angular/angular',
             'ui-router': 'vendor/angular-ui-router/release/angular-ui-router',
             'oc-lazy-load': 'vendor/oclazyload/dist/ocLazyLoad',
+            'ng-dialog': 'vendor/ngDialog/js/ngDialog',
             'app': 'app'
         },
         shim: {
@@ -17,6 +18,7 @@
             },
             'ui-router': ['angular'],
             'oc-lazy-load': ['angular'],
+            'ng-dialog': ['angular'],
             'app': ['angular']
         }
     });

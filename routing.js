@@ -35,7 +35,7 @@
                 templateUrl: 'components/dashboard/dashboard.html',
                 authenticate: true,
                 resolve: {
-                    main: ['$ocLazyLoad',
+                    dashboard: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
                                 name: 'app.dashboard',
@@ -50,7 +50,7 @@
                 templateUrl: 'components/story/story.html',
                 authenticate: true,
                 resolve: {
-                    main: ['$ocLazyLoad',
+                    story: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load({
                                 name: 'app.story',
@@ -62,6 +62,25 @@
             }).state('404', {
                 url: '/404',
                 templateUrl: 'common/views/404.html'
+            }).state('modal', {
+                parent: '404',
+                resolve: {
+                    loadModal: ['$ocLazyLoad', '$injector', '$rootScope',
+                        function ($ocLazyLoad, $injector, $rootScope) {
+                            return $ocLazyLoad.load([{
+                                name: 'app.modal',
+                                files: ['components/modal/modal-controller']
+                            }]).then(function () {
+                                $rootScope.bootstrapLoaded = true;
+
+                                $injector.get('ngDialog').open({
+                                    template: 'components/modal/modal.html',
+                                    controller: 'ModalCtrl as modal'
+                                });
+                            });
+                        }
+                    ]
+                }
             });
         }
 
