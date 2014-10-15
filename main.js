@@ -1,4 +1,4 @@
-/*global require, document*/
+/* global require, document */
 
 (function () {
     'use strict';
@@ -23,6 +23,7 @@
 
     var dependencies = ['angular',
                         'app',
+                        'config',
                         'common/scripts/controllers/main-controller',
                         'common/scripts/controllers/header-controller',
                         'common/scripts/controllers/footer-controller',
