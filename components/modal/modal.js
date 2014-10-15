@@ -6,9 +6,9 @@
 
     var dependencies = ['angular'];
 
-    define(dependencies, function (angular) {
+    define(dependencies, function(angular) {
 
-        return angular.module('app.login', []);
+        return angular.module('app.modal', []);
 
     });
 

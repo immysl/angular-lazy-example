@@ -1,4 +1,4 @@
-/*global define, localStorage*/
+/* global define, localStorage */
 
 (function () {
 
@@ -8,9 +8,10 @@
                         'components/login/login-service'];
 
     define(dependencies, function (LoginModule) {
+
         LoginModule.controller('LoginCtrl', LoginCtrl);
 
-        /* @ngInject */
+        /* @ngInject  */
         function LoginCtrl(LoginService, AuthService, $http, $state) {
             var vm = this,
                 message;
