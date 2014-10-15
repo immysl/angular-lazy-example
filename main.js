@@ -24,6 +24,7 @@
     var dependencies = ['angular',
                         'app',
                         'config',
+                        'routing',
                         'common/scripts/controllers/main-controller',
                         'common/scripts/controllers/header-controller',
                         'common/scripts/controllers/footer-controller',
