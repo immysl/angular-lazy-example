@@ -9,6 +9,7 @@
     define(dependencies, function (app) {
 
         app.config(LazyLoadConfig);
+        app.config(ngDialogConfig);
         app.run(Authenticate);
 
         function LazyLoadConfig($ocLazyLoadProvider) {
@@ -17,6 +18,14 @@
                 events: true,
                 jsLoader: require,
                 loadedModules: ['app']
+            });
+        }
+
+        function ngDialogConfig(ngDialogProvider) {
+            ngDialogProvider.setDefaults({
+                showClose: false,
+                closeByDocument: false,
+                closeByEscape: false
             });
         }
 

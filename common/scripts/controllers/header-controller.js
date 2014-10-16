@@ -13,8 +13,9 @@
             var vm = this;
 
             vm.title = 'Angular Lazyload App';
-            vm.leadText = 'This is a small example app used to demonstrate how to lazyload ' +
-                'angular modules by dynamically injecting them to the app.';
+            vm.leadText = 'An example app lazy loading ' +
+                'angular modules. Login to access ' +
+                'the other three states. (username: hello, password: hello_pass)';
 
             $http.get('json/nav-links.json').success(function (response) {
                 vm.navLinks = response;

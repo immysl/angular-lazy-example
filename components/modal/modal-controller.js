@@ -10,7 +10,7 @@
 
         ModalModule.controller('ModalCtrl', ModalCtrl);
 
-        function ModalCtrl() {
+        function ModalCtrl($state) {
             var vm = this;
 
             vm.title = 'ngDialog Modal';
@@ -18,10 +18,16 @@
 
             vm.say = {};
             vm.sayIt = sayIt;
+            vm.cancel = cancel;
 
             function sayIt() {
                 vm.say.show = true;
                 vm.say.message = 'Say It Out Loud!';
+            }
+
+            function cancel(closeThisDialog) {
+                $state.go('dashboard');
+                closeThisDialog();
             }
         }
 

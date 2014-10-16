@@ -63,7 +63,8 @@
                 url: '/404',
                 templateUrl: 'common/views/404.html'
             }).state('modal', {
-                parent: '404',
+                parent: 'dashboard',
+                authenticate: true,
                 resolve: {
                     loadModal: ['$ocLazyLoad', '$injector', '$rootScope',
                         function ($ocLazyLoad, $injector, $rootScope) {
