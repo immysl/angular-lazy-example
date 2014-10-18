@@ -16,7 +16,6 @@
     "oclazyload": "~0.3.7",
     "bootstrap": "~3.2.0",
     "requirejs": "~2.1.15",
-    "ngDialog": "~0.3.0",
-    "ocModal": "~0.1.9"
+    "ngDialog": "~0.3.0"
   }
 }
