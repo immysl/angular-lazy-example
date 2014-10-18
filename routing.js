@@ -68,10 +68,10 @@
                 resolve: {
                     loadModal: ['$ocLazyLoad', '$injector', '$rootScope',
                         function ($ocLazyLoad, $injector, $rootScope) {
-                            return $ocLazyLoad.load([{
+                            return $ocLazyLoad.load({
                                 name: 'app.modal',
                                 files: ['components/modal/modal-controller']
-                            }]).then(function () {
+                            }).then(function () {
                                 $rootScope.bootstrapLoaded = true;
 
                                 $injector.get('ngDialog').open({
